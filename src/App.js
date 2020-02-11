@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
@@ -18,6 +19,7 @@ function App() {
       <Route exact path="/Signup" component={Signup} />
       <Route exact path="/Payment" component={Payment} />
       <Route exact path="/Cart" component={Cart} />
+      <Footer />
     </Router>
   );
 }

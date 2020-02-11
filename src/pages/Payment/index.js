@@ -8,10 +8,9 @@ function Payment() {
             <h2 className="text-center">Enter Payment Information</h2>
             <form className="mt-4">
 
-
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label for="inputEmail4">Name</label>
+                        <label for="inputEmail4"><i class="fas fa-user"></i> Name</label>
                         <input type="email" className="form-control" id="inputName" placeholder="First Last" />
                     </div>
                     <div className="form-group col-md-6">
@@ -21,7 +20,7 @@ function Payment() {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label for="inputAddress">Email</label>
+                        <label for="inputAddress"> <i class="fas fa-envelope"></i> Email</label>
                         <input type="text" className="form-control" id="inputAddress" placeholder="email@example.com" />
                     </div>
                     <div className="form-group col-md-6">
@@ -31,7 +30,7 @@ function Payment() {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label for="inputCity">Address</label>
+                        <label for="inputCity"><i class="far fa-address-card"></i> Address</label>
                         <input type="text" className="form-control" id="inputAddress" placeholder="123 Main Street" />
                     </div>
 
@@ -42,7 +41,7 @@ function Payment() {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label for="inputCity">City</label>
+                        <label for="inputCity"><i class="fas fa-city"></i> City</label>
                         <input type="text" className="form-control" id="inputAddress" placeholder="Oakland" />
                     </div>
 
@@ -53,7 +52,7 @@ function Payment() {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-3">
-                        <label for="inputCity">State</label>
+                        <label for="inputCity"><i class="fas fa-university"></i> State</label>
                         <input type="text" className="form-control" id="inputAddress" placeholder="CA" />
                     </div>
                     <div className="form-group col-md-3">
@@ -72,7 +71,7 @@ function Payment() {
                 </div>
 
 
-                <button type="submit" className="btn btn-primary">Process Payment</button>
+                <button type="submit" className="btn btn-dark btn-lg">Process Payment</button>
             </form>
 
 
