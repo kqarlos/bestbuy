@@ -4,28 +4,64 @@ import { Link } from "react-router-dom";
 
 
 function Navbar() {
-    return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="/"> <span role="img" aria-label="laptop">💻</span> BestBuy</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
 
-                    <Link class="nav-item nav-link active" to="/">
-                        Home <span class="sr-only">(current)</span>
+    var loggedin = true;
+    var current = "Home";
+
+    function getNav(loggedin) {
+        if (loggedin) {
+            return (
+                <div className="navbar-nav">
+                    <Link className="nav-item nav-link active" to="/">
+                        Home <span className="sr-only">(current)</span>
                     </Link>
-                    <Link class="nav-item nav-link" to="/Login">
-                        Login
+                    <Link className="nav-item nav-link" to="/Cart">
+                        Cart
                     </Link>
-                    <Link class="nav-item nav-link" to="/Login">
-                        Signup
-                    </Link>
-                    <Link class="nav-item nav-link" to="/Login">
+                    <Link className="nav-item nav-link" to="/Logout">
                         Logout
                     </Link>
-                    <Link class="nav-item nav-link" to="/Login">
+                </div>
+            );
+        } else {
+            return (
+                <div className="navbar-nav">
+                    <Link className="nav-item nav-link active" to="/">
+                        Home <span className="sr-only">(current)</span>
+                    </Link>
+                    <Link className="nav-item nav-link" to="/Login">
+                        Login
+                </Link>
+                    <Link className="nav-item nav-link" to="/Signup">
+                        Signup
+                </Link>
+                </div>
+            );
+        }
+    }
+
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a className="navbar-brand" href="/"> <span className="display-4" role="img" aria-label="laptop">💻 BestBuy</span> </a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{ fontSize: 20 }}>
+                <div className="navbar-nav">
+
+                    <Link className="nav-item nav-link active" to="/">
+                        Home <span className="sr-only">(current)</span>
+                    </Link>
+                    <Link className="nav-item nav-link" to="/Login">
+                        Login
+                    </Link>
+                    <Link className="nav-item nav-link" to="/Signup">
+                        Signup
+                    </Link>
+                    <Link className="nav-item nav-link" to="/Home">
+                        Logout
+                    </Link>
+                    <Link className="nav-item nav-link" to="/Cart">
                         Cart
                     </Link>
 
