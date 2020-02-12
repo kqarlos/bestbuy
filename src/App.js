@@ -8,18 +8,24 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Payment from "./pages/Payment"
 import Cart from "./pages/Cart"
+import Wrapper from "./components/Wrapper"
+import "./App.css"
 
 
 function App() {
   return (
     <Router>
+
       <Navbar />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/Login" component={Login} />
-      <Route exact path="/Signup" component={Signup} />
-      <Route exact path="/Payment" component={Payment} />
-      <Route exact path="/Cart" component={Cart} />
-      <Footer />
+      <Wrapper>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Signup" component={Signup} />
+        <Route exact path="/Payment" component={Payment} />
+        <Route exact path="/Cart" component={Cart} />
+        <Footer />
+      </Wrapper>
+
     </Router>
   );
 }

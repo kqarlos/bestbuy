@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Login() {
     const history = useHistory();
@@ -8,7 +8,7 @@ function Login() {
     }
     return (
 
-        <div className="container mt-5 bg-light p-5">
+        <div className="container my-5 bg-light p-5">
             <h2 className="text-center">Login</h2>
             <form className=" mt-4 col-6">
                 <div className="form-group">

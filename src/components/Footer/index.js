@@ -1,12 +1,12 @@
 import React from "react";
-
+import "./style.css"
 
 function Footer() {
 
     return (
 
 
-        <footer className="page-footer fixed-bottom mt-5 text-white font-small bg-dark">
+        <footer className="page-footer mt-5 text-white font-small bg-dark">
 
             <div className="footer-copyright text-center py-3">© 2020 Copyright
             <a className="text-white" target="__blank" href="https://github.com/kqarlos"> <i className="fab fa-github-alt"></i> </a>
