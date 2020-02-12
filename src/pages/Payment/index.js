@@ -1,6 +1,11 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 
 function Payment() {
+    const history = useHistory();
+    const handleClick = () => {
+        history.push("/");
+    }
 
     return (
 
@@ -71,7 +76,34 @@ function Payment() {
                 </div>
 
 
-                <button type="submit" className="btn btn-dark btn-lg">Process Payment</button>
+
+                <button type="button" className="btn btn-dark btn-lg" data-toggle="modal" data-target=".bd-example-modal-sm">Process Payment</button>
+
+                <div className="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-sm">
+                        <div className="modal-content">
+
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Order Succesfull!!</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                Go back home
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-dark" data-dismiss="modal" onClick={handleClick}>Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
             </form>
 
 
