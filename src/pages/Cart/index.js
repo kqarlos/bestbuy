@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CartItem from "../../components/CartItem";
 
 function Cart() {
 
@@ -8,9 +9,49 @@ function Cart() {
         <div className="container mt-5 bg-light p-5">
             <h2 className="text-center"><i className="fas fa-shopping-cart"></i> Shopping Cart</h2>
 
-            <Link to="/Payment" className="btn btn-dark btn-lg" role="button">
-                Checkout
-            </Link>
+            <div className="row mt-4">
+
+                <div className="col-2">
+                    Product
+                </div>
+                <div className="col-4">
+                </div>
+                <div className="col-2">
+                    Price
+                </div>
+                <div className="col-2">
+                    Quantity
+                </div>
+                <div className="col-2">
+                </div>
+
+            </div>
+
+            <CartItem />
+            <CartItem />
+            <CartItem />
+            <CartItem />
+
+            <div className="mt-5 row">
+
+                <div className="col-3">
+                    <Link to="/" className="btn btn-dark btn-lg" role="button">
+                        Continue Shopping
+                    </Link>
+                </div>
+                <div className="col-3">
+                </div>
+                <div className="col-2">
+                    Total:
+                </div>
+                <div className="col-4">
+                    <Link to="/Payment" className="btn btn-dark btn-lg" role="button">
+                        Checkout
+                     </Link>
+                </div>
+
+            </div>
+
 
         </div>
     );
