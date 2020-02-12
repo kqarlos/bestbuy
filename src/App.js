@@ -9,6 +9,7 @@ import Signup from "./pages/Signup"
 import Payment from "./pages/Payment"
 import Cart from "./pages/Cart"
 import Wrapper from "./components/Wrapper"
+import Item from "./pages/Item"
 import "./App.css"
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/Signup" component={Signup} />
         <Route exact path="/Payment" component={Payment} />
         <Route exact path="/Cart" component={Cart} />
+        <Route exact path="/Item" component={Item} />
         <Footer />
       </Wrapper>
 

@@ -58,7 +58,7 @@ function Navbar() {
                     <Link className="nav-item nav-link" to="/Signup">
                         Signup
                     </Link>
-                    <Link className="nav-item nav-link" to="/">
+                    <Link className="nav-item nav-link" to="/Item">
                         Logout
                     </Link>
                     <Link className="nav-item nav-link" to="/Cart">
