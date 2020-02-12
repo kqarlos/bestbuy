@@ -18,7 +18,7 @@ function Navbar() {
                     <Link className="nav-item nav-link" to="/Cart">
                         Cart
                     </Link>
-                    <Link className="nav-item nav-link" to="/Logout">
+                    <Link className="nav-item nav-link" to="/">
                         Logout
                     </Link>
                 </div>
@@ -58,7 +58,7 @@ function Navbar() {
                     <Link className="nav-item nav-link" to="/Signup">
                         Signup
                     </Link>
-                    <Link className="nav-item nav-link" to="/Home">
+                    <Link className="nav-item nav-link" to="/">
                         Logout
                     </Link>
                     <Link className="nav-item nav-link" to="/Cart">
