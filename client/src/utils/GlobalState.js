@@ -50,7 +50,7 @@ const reducer = (state, action) => {
         case LOGOUT:
             return {
                 ...state,
-                loggedin: true,
+                loggedin: false,
                 user: ""
             };
         default:

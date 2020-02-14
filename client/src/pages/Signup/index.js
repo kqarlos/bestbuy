@@ -1,10 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useStoreContext } from "../../utils/GlobalState";
+import { LOGIN } from "../../utils/actions";
 
 function Signup() {
+    const [state, dispatch] = useStoreContext();
+
     const history = useHistory();
     const handleClick = () => {
         history.push("/");
+        dispatch({
+            type: LOGIN,
+            _id: 1
+        })
     }
 
     return (

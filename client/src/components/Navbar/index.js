@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
+import { LOGOUT } from "../../utils/actions";
 
 // import "./style.css"
 
@@ -8,6 +9,12 @@ import { useStoreContext } from "../../utils/GlobalState";
 function Navbar() {
 
     const [state, dispatch] = useStoreContext();
+
+    function logout() {
+        dispatch({
+            type: LOGOUT
+        })
+    }
 
     useEffect(() => {
 
@@ -23,7 +30,7 @@ function Navbar() {
                     <Link className="nav-item nav-link" to="/Cart">
                         Cart
                     </Link>
-                    <Link className="nav-item nav-link" to="/">
+                    <Link className="nav-item nav-link" onClick={() => logout()} to="/">
                         Logout
                     </Link>
                 </div>
