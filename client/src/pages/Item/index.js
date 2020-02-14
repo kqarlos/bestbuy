@@ -14,6 +14,22 @@ function Item() {
         });
     }
 
+    function getItemButton() {
+        if (state.loggedin) {
+            return (
+                <Link className="btn btn-dark" onClick={() => addToCart()} to="/Cart">
+                    <i className="fas fa-shopping-cart"></i> Add to Cart
+                </Link>
+            );
+        } else {
+            return (
+                <Link to="/" className="btn btn-dark">
+                    Continue Shopping
+                </Link>
+            );
+        }
+    }
+
     return (
 
         <div className="container mt-5 bg-light p-5">
@@ -24,9 +40,7 @@ function Item() {
                     <h5 className="card-title">{state.currentItem.name}</h5>
                     <p className="card-text">${state.currentItem.salePrice}</p>
                     <p className="card-text">{state.currentItem.shortDescription}</p>
-                    <Link className="btn btn-dark" onClick={() => addToCart()} to="/Cart">
-                        <i className="fas fa-shopping-cart"></i> Add to Cart
-                    </Link>
+                    {getItemButton()}
                 </div>
             </div>
 
