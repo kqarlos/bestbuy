@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useStoreContext } from "../../utils/GlobalState";
+
 // import "./style.css"
 
 
 function Navbar() {
 
-    var loggedin = true;
-    var current = "Home";
+    const [state, dispatch] = useStoreContext();
+
+    useEffect(() => {
+
+    }, []);
 
     function getNav(loggedin) {
         if (loggedin) {
@@ -47,25 +52,7 @@ function Navbar() {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{ fontSize: 20 }}>
-                <div className="navbar-nav">
-
-                    <Link className="nav-item nav-link active" to="/">
-                        Home <span className="sr-only">(current)</span>
-                    </Link>
-                    <Link className="nav-item nav-link" to="/Login">
-                        Login
-                    </Link>
-                    <Link className="nav-item nav-link" to="/Signup">
-                        Signup
-                    </Link>
-                    <Link className="nav-item nav-link" to="/Item">
-                        Logout
-                    </Link>
-                    <Link className="nav-item nav-link" to="/Cart">
-                        Cart
-                    </Link>
-
-                </div>
+                {getNav(state.loggedin)}
             </div>
         </nav>
 

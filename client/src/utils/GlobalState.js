@@ -34,7 +34,6 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 currentItem: action.item,
-                loading: false
             };
         case LOGIN:
             return {

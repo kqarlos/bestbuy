@@ -11,23 +11,26 @@ import Cart from "./pages/Cart"
 import Wrapper from "./components/Wrapper"
 import Item from "./pages/Item"
 import "./App.css"
+import { StoreProvider } from './utils/GlobalState';
 
 
 function App() {
   return (
     <Router>
-
-      <Navbar />
-      <Wrapper>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/Login" component={Login} />
-        <Route exact path="/Signup" component={Signup} />
-        <Route exact path="/Payment" component={Payment} />
-        <Route exact path="/Cart" component={Cart} />
-        <Route exact path="/Item" component={Item} />
-        <Footer />
-      </Wrapper>
-
+      <div>
+        <StoreProvider>
+          <Navbar />
+          <Wrapper>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/Signup" component={Signup} />
+            <Route exact path="/Payment" component={Payment} />
+            <Route exact path="/Cart" component={Cart} />
+            <Route exact path="/Item" component={Item} />
+            <Footer />
+          </Wrapper>
+        </StoreProvider>
+      </div>
     </Router>
   );
 }

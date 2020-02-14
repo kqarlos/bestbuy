@@ -9,15 +9,15 @@ export default {
         return axios.post("/users/signup", userData);
     },
     isAuth: function (_id) {
-        return axios.get("/users/" + id);
+        return axios.get("/users/" + _id);
     },
     findAll: function () {
-        return axios.get("/products/");
+        return axios.get("api/products");
     },
     getItem: function (_id) {
-        return axios.get("/products/" + id);
+        return axios.get("api/products/" + _id);
     },
     getProductsByCategory: function () {
-        return axions.get("/products/category");
+        return axios.get("api/products/category");
     }
 }
