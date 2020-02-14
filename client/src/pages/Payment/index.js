@@ -1,10 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useStoreContext } from "../../utils/GlobalState";
+import { CLEAR_CART } from "../../utils/actions";
 
 function Payment() {
+    const [state, dispatch] = useStoreContext();
+
     const history = useHistory();
     const handleClick = () => {
         history.push("/");
+        dispatch({
+            type: CLEAR_CART
+        })
     }
 
     return (

@@ -5,7 +5,8 @@ import {
     ADD_CART_ITEM,
     SET_CURRENT_ITEM,
     LOGIN,
-    LOGOUT
+    LOGOUT,
+    CLEAR_CART
 } from "./actions"
 
 const StoreContext = createContext();
@@ -29,6 +30,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 cart: [action.item, ...state.cart]
+            };
+        case CLEAR_CART:
+            return {
+                ...state,
+                cart: []
             };
         case SET_CURRENT_ITEM:
             return {

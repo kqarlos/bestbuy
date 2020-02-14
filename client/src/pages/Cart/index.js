@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem";
+import { useStoreContext } from "../../utils/GlobalState";
 
 function Cart() {
+    const [state, dispatch] = useStoreContext();
 
     return (
 
@@ -27,11 +29,11 @@ function Cart() {
 
             </div>
 
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-
+            {state.cart.map((i, index) => (
+                <CartItem key={index} item={i}/>
+            ))}
+            
+        
             <div className="mt-5 row">
 
                 <div className="col-3">
