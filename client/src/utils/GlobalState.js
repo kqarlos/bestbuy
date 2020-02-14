@@ -57,10 +57,10 @@ const StoreProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, {
         searchItems: [],
         currentItem: {
-            _id: 0,
-            title: "",
-            price: "",
-            description: ""
+            // _id: 0,
+            // title: "",
+            // price: "",
+            // description: ""
         },
         cart: [],
         loggedin: false,
