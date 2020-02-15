@@ -6,11 +6,11 @@ Search into Best Buy's API for products and save them in your cart.
 
 1. Live Site
 
-![Site](assets/images/.png)
+![Site](client/public/live.gif)
 
-2. 
+2. Search results available whether user is logged in or not
 
-![Site](assets/images/.png)
+![Site](client/public/search.gif)
 
 
 3. 
@@ -48,13 +48,33 @@ Search into Best Buy's API for products and save them in your cart.
 * These are the main elements that play an important role in the signup process in the frontend in the Sigup page component. Here there are two listeners on the email and password input fields. These are placed to have easy access to their value. Once the user clicks the sigup button, the _handleClick_ function runs. This will call the API to update the database with the new user's information. We get a user object in return. With that object we can update the state of the application with the user now logged in. _history.push("/")_ will make sure that we go to the home page after signup.
 
 
-2. 
+2. Search Item Card Component
 
 ```javascript
 
+function ItemCard(props) {
+const [state, dispatch] = useStoreContext();
+function setCurrentItem() {
+    dispatch({
+        type: SET_CURRENT_ITEM,
+        item: props.item
+    });
+}
+
+return(
+    <img className="card-img-top" src={props.item.image} />
+    <div className="card-body">
+    <Link className="card-title" onClick={() => setCurrentItem()} to="/Item">
+        {props.item.name}
+    </Link>
+    <p className="card-text">${props.item.salePrice}</p>
+    <p className="card-text">{props.item.shortDescription}</p>
+    </div>
+);
+}
 
 ```
-* Description:
+* This is a component that generates a card given an item. These cards are placed in the Home page when displaying search results. The function _setCurrentItem()_ takes care of saving the item before going into a page that allows to view the item in more detail. It takes the item that came from the _props_ input and uses it to update the state. Not only going to a different page with the _Link_ component, but also making sure that the next page has acces to this item.
 
 ## Available Scripts for cloned repos
 
@@ -92,7 +112,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## Deployed Link
 
-* [See Live Site](https://kqarlos.github.io/)
+* [See Live Site](https://shrouded-refuge-91628.herokuapp.com/)
 
 ## Author
 
