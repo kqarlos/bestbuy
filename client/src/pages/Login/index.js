@@ -1,18 +1,25 @@
-import React from "react";
+import React, {useRef} from "react";
 import { useHistory } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
 import { LOGIN } from "../../utils/actions";
+import API from "../../utils/API";
 
 function Login() {
     const [state, dispatch] = useStoreContext();
+    const emailRef = useRef();
+    const passRef = useRef();
 
     const history = useHistory();
     const handleClick = () => {
-        history.push("/");
-        dispatch({
-            type: LOGIN,
-            _id: 1
-        })
+        API.login({ email: emailRef.current.value, password: passRef.current.value })
+            .then(user => {
+                //user.data.success = true if login succesfull
+                history.push("/");
+                dispatch({
+                    type: LOGIN,
+                    _id: user.data._id
+                })
+            });
     }
     return (
 
@@ -21,12 +28,12 @@ function Login() {
             <form className=" mt-4 col-6">
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Enter email" />
+                    <input ref={emailRef} type="email" className="form-control" aria-describedby="emailHelp" placeholder="Enter email" />
                     <small className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Password" />
+                    <input ref={passRef} type="password" className="form-control" placeholder="Password" />
                 </div>
 
 

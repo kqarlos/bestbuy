@@ -3,13 +3,13 @@ import axios from "axios";
 export default {
 
     login: function (userData) {
-        return axios.post("/users/login", userData);
+        return axios.post("api/users/login", userData);
     },
     signup: function (userData) {
-        return axios.post("/users/signup", userData);
+        return axios.post("api/users/signup", userData);
     },
     isAuth: function (_id) {
-        return axios.get("/users/" + _id);
+        return axios.get("api/users/" + _id);
     },
     findAll: function () {
         return axios.get("api/products");
