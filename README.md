@@ -1,6 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Best Buy Pal
 
-## Available Scripts
+Search into Best Buy's API for products and save them in your cart. 
+
+## Site Pictures
+
+1. Live Site
+
+![Site](assets/images/.png)
+
+2. 
+
+![Site](assets/images/.png)
+
+
+3. 
+
+![Site](assets/images/.png)
+
+## Code Snippets
+
+
+1. Sigup
+
+```javascript
+
+    const emailRef = useRef();
+    const passRef = useRef();
+    const history = useHistory();
+    const handleClick = () => {
+        API.signup({ email: emailRef.current.value, password: passRef.current.value })
+            .then(user => {
+                console.log("API RESPONSE");
+                console.log(user)
+                history.push("/");
+                dispatch({
+                    type: LOGIN,
+                    _id: user.data._id
+                })
+            });
+      
+    }
+
+    <input ref={emailRef} type="email" placeholder="Enter email" />
+    <input ref={passRef} type="password" placeholder="Password" />
+    
+```
+* These are the main elements that play an important role in the signup process in the frontend in the Sigup page component. Here there are two listeners on the email and password input fields. These are placed to have easy access to their value. Once the user clicks the sigup button, the _handleClick_ function runs. This will call the API to update the database with the new user's information. We get a user object in return. With that object we can update the state of the application with the user now logged in. _history.push("/")_ will make sure that we go to the home page after signup.
+
+
+2. 
+
+```javascript
+
+
+```
+* Description:
+
+## Available Scripts for cloned repos
 
 In the project directory, you can run:
 
@@ -22,47 +78,35 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Bootstrap](https://getbootstrap.com/)
+* [Javascript](https://www.javascript.com/)
+* [Node.js](https://nodejs.org/en/)
+* [Express](https://www.npmjs.com/package/express)
+* [MongoDB](https://www.mongodb.com/)
+* [React](https://reactjs.org/)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Deployed Link
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [See Live Site](https://kqarlos.github.io/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Author
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ * **Carlos Toledo** 
 
-## Learn More
+## Links
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Link to site repository](https://github.com/kqarlos/bestbuy)
+- [Link to Github](https://www.github.com/kqarlos)
+- [Link to LinkedIn](https://www.linkedin.com/in/carlos-toledo415/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Acknowledgments
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* [W3 Schools](https://www.w3schools.com/)
+* [Bootstrap components](https://getbootstrap.com/docs/4.4/components/navbar/)
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)

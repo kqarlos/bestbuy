@@ -5,12 +5,23 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_ITEMS } from "../../utils/actions"
 
 function Home() {
-
-
     const [state, dispatch] = useStoreContext();
+    const searchRef = useRef();
+
+    const getSearchItem = (item) => {
+        API.findAll(item)
+            .then(results => {
+                console.log(results);
+                // dispatch({
+                //     type: UPDATE_ITEMS,
+                //     searchItems: results.data
+                // });
+            })
+            .catch(err => console.log(err));
+    };
 
     const getItems = () => {
-        API.findAll()
+        API.findAll("")
             .then(results => {
                 dispatch({
                     type: UPDATE_ITEMS,
@@ -30,7 +41,7 @@ function Home() {
         <div className="container mt-5 bg-light p-5">
 
             <div className="input-group md-form form-sm form-2 pl-0">
-                <input className="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" />
+                <input ref={searchRef} className="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" />
                 <div className="input-group-append">
                     <span className="input-group-text red lighten-3" id="basic-text1"><i className="fas fa-search text-grey"
                         aria-hidden="true"></i></span>
@@ -59,7 +70,7 @@ function Home() {
                 <div className="row">
 
                     {state.searchItems.map((i, index) => (
-                        <ItemCard key={index} item={i}/>
+                        <ItemCard key={index} item={i} />
                     ))}
 
                 </div>
