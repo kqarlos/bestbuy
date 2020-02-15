@@ -5,3 +5,4 @@ export const SET_CURRENT_ITEM = "SET_CURRENT_ITEM";
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const CLEAR_CART = "CLEAR_CART";
+export const UPDATE_CATEGORIES = "UPDATE_CATEGORIES";

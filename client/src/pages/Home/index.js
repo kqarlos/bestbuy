@@ -2,17 +2,28 @@ import React, { useEffect, useRef } from "react";
 import ItemCard from "../../components/ItemCard";
 import API from "../../utils/API";
 import { useStoreContext } from "../../utils/GlobalState";
-import { UPDATE_ITEMS } from "../../utils/actions"
+import { UPDATE_ITEMS, UPDATE_CATEGORIES } from "../../utils/actions"
 
 function Home() {
     const [state, dispatch] = useStoreContext();
     const searchRef = useRef();
 
-    const getItems = () => {
-        API.findAll(searchRef.current.value)
+    const getItems = (item) => {
+        console.log("SEARCHING FOR");
+        console.log(item);
+        API.findAll(item)
             .then(results => {
                 console.log("API RESULTS");
-                console.log(results);
+                console.log(results.data);
+                console.log("CAT RESULTS");
+                var random = Math.floor(Math.random() * (results.data.length))
+                var categoryList = results.data[random].categoryPath.map(cat => cat.name);
+                console.log(categoryList);
+                // categoryList = categoryList.map(item => item.split(" & ").join(""));
+                dispatch({
+                    type: UPDATE_CATEGORIES,
+                    categories: categoryList
+                })
                 dispatch({
                     type: UPDATE_ITEMS,
                     searchItems: results.data
@@ -22,7 +33,7 @@ function Home() {
     };
 
     useEffect(() => {
-        getItems();
+        getItems("");
     }, []);
 
 
@@ -33,27 +44,23 @@ function Home() {
             <div className="input-group md-form form-sm form-2 pl-0">
                 <input ref={searchRef} className="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" />
                 <div className="input-group-append">
-                    <span className="input-group-text red lighten-3" id="basic-text1" onClick={()=> getItems()}><i className="fas fa-search text-grey"
+                    <span className="input-group-text red lighten-3" id="basic-text1" onClick={() => getItems(searchRef.current.value)}><i className="fas fa-search text-grey"
                         aria-hidden="true"></i></span>
                 </div>
             </div>
 
             <div className="row justify-content-around mt-4">
                 <div className="col-2">
-                    Pick a category
+                    Categories
                 </div>
-                <div className="col-1">
-                    <button type="button" className="btn btn-dark">Dark</button>
-                </div>
-                <div className="col-1">
-                    <button type="button" className="btn btn-dark">Dark</button>
-                </div>
-                <div className="col-1">
-                    <button type="button" className="btn btn-dark">Dark</button>
-                </div>
-                <div className="col-1">
-                    <button type="button" className="btn btn-dark">Dark</button>
-                </div>
+
+                {state.categories.map((cat, index) => (
+
+                    <div key={index} className="col-2">
+                        <button type="button" className="btn btn-dark" onClick={() => getItems(cat)}>{cat}</button>
+                    </div>
+                ))}
+
             </div>
 
             <div className=" mt-5 container">

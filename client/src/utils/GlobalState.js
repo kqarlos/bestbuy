@@ -6,7 +6,8 @@ import {
     SET_CURRENT_ITEM,
     LOGIN,
     LOGOUT,
-    CLEAR_CART
+    CLEAR_CART,
+    UPDATE_CATEGORIES
 } from "./actions"
 
 const StoreContext = createContext();
@@ -18,6 +19,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 searchItems: [...action.searchItems],
+            };
+        case UPDATE_CATEGORIES:
+            return {
+                ...state,
+                categories: [...action.categories],
             };
         case REMOVE_CART_ITEM:
             return {
@@ -68,6 +74,7 @@ const StoreProvider = ({ value = [], ...props }) => {
             // price: "",
             // description: ""
         },
+        categories: [],
         cart: [],
         loggedin: false,
         userId: ""
