@@ -8,7 +8,7 @@ import {
     LOGOUT,
     CLEAR_CART,
     UPDATE_CATEGORIES
-} from "./actions"
+} from "./actions";
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -28,8 +28,8 @@ const reducer = (state, action) => {
         case REMOVE_CART_ITEM:
             return {
                 ...state,
-                cart: state.cart.filter((cart) => {
-                    return cart._id !== action._id;
+                cart: state.cart.filter((item) => {
+                    return item.name !== action.name;
                 })
             };
         case ADD_CART_ITEM:

@@ -1,6 +1,16 @@
 import React from "react"
+import { useStoreContext } from "../../utils/GlobalState";
+import { REMOVE_CART_ITEM } from "../../utils/actions";
 
 function CartItem(props) {
+    const [state, dispatch] = useStoreContext();
+
+    function removeFromCart() {
+        dispatch({
+            type: REMOVE_CART_ITEM,
+            name: props.item.name
+        });
+    }
 
     return (
 
@@ -19,7 +29,7 @@ function CartItem(props) {
                 <input className="form-control" type="text" placeholder="" />
             </div>
             <div className="col-2">
-                <button type="button" className="btn btn-danger">X</button>
+                <button type="button" className="btn btn-danger" onClick={() => removeFromCart()}>X</button>
             </div>
 
         </div>
