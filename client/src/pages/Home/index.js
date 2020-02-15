@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import ItemCard from "../../components/ItemCard";
 import API from "../../utils/API";
 import { useStoreContext } from "../../utils/GlobalState";
@@ -8,21 +8,11 @@ function Home() {
     const [state, dispatch] = useStoreContext();
     const searchRef = useRef();
 
-    const getSearchItem = (item) => {
-        API.findAll(item)
-            .then(results => {
-                console.log(results);
-                // dispatch({
-                //     type: UPDATE_ITEMS,
-                //     searchItems: results.data
-                // });
-            })
-            .catch(err => console.log(err));
-    };
-
     const getItems = () => {
-        API.findAll("")
+        API.findAll(searchRef.current.value)
             .then(results => {
+                console.log("API RESULTS");
+                console.log(results);
                 dispatch({
                     type: UPDATE_ITEMS,
                     searchItems: results.data
@@ -43,7 +33,7 @@ function Home() {
             <div className="input-group md-form form-sm form-2 pl-0">
                 <input ref={searchRef} className="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" />
                 <div className="input-group-append">
-                    <span className="input-group-text red lighten-3" id="basic-text1"><i className="fas fa-search text-grey"
+                    <span className="input-group-text red lighten-3" id="basic-text1" onClick={()=> getItems()}><i className="fas fa-search text-grey"
                         aria-hidden="true"></i></span>
                 </div>
             </div>

@@ -11,8 +11,12 @@ export default {
     isAuth: function (_id) {
         return axios.get("api/users/" + _id);
     },
-    findAll: function () {
-        return axios.get("api/products");
+    findAll: function (item) {
+        return axios.get("api/products/",  {
+            params: {
+              q: item
+            }
+          });
     },
     getItem: function (_id) {
         return axios.get("api/products/" + _id);

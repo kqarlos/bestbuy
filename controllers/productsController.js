@@ -14,7 +14,7 @@ module.exports = {
         }*)?format=json&apiKey=${process.env.BEST_BUY_API_KEY}`
       )
       .then(results => {
-        console.log("RESULTS: ", results.data);
+        // console.log("RESULTS: ", results.data);
         res.json([...results.data.products]);
       })
       .catch(err => console.log(err));
