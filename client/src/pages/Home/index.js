@@ -18,6 +18,13 @@ function Home() {
                 console.log("CAT RESULTS");
                 var random = Math.floor(Math.random() * (results.data.length))
                 var categoryList = results.data[random].categoryPath.map(cat => cat.name);
+                // var categoryList2 = results.data[1].categoryPath.map(cat => cat.name);
+                // categoryList.shift();
+                // categoryList.pop();
+                // categoryList2.shift();
+                // categoryList2.pop();
+                // categoryList = [...categoryList, ...categoryList2]
+
                 console.log(categoryList);
                 // categoryList = categoryList.map(item => item.split(" & ").join(""));
                 dispatch({
@@ -55,8 +62,7 @@ function Home() {
                 </div>
 
                 {state.categories.map((cat, index) => (
-
-                    <div key={index} className="col-2">
+                    <div key={index} className="col-2 my-1">
                         <button type="button" className="btn btn-dark" onClick={() => getItems(cat)}>{cat}</button>
                     </div>
                 ))}
