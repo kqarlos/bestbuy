@@ -26,21 +26,37 @@ const reducer = (state, action) => {
                 categories: [...action.categories],
             };
         case REMOVE_CART_ITEM:
+            var count = state.cartCount;
+            delete count[action.name];
             return {
                 ...state,
                 cart: state.cart.filter((item) => {
                     return item.name !== action.name;
-                })
+                }),
+                cartCount: count
             };
         case ADD_CART_ITEM:
-            return {
-                ...state,
-                cart: [action.item, ...state.cart]
-            };
+            var count = state.cartCount;
+            if (count[action.item.name]) {
+                count[action.item.name]++;
+                return {
+                    ...state,
+                    cartCount: count
+                };
+            } else {
+                count[action.item.name] = 1;
+                return {
+                    ...state,
+                    cart: [action.item, ...state.cart],
+                    cartCount: count
+                };
+            }
+
         case CLEAR_CART:
             return {
                 ...state,
-                cart: []
+                cart: [],
+                cartCount: {}
             };
         case SET_CURRENT_ITEM:
             return {
@@ -76,6 +92,7 @@ const StoreProvider = ({ value = [], ...props }) => {
         },
         categories: [],
         cart: [],
+        cartCount: {},
         loggedin: false,
         userId: ""
     });

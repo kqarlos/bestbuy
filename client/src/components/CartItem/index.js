@@ -26,7 +26,7 @@ function CartItem(props) {
                 {props.item.salePrice}
             </div>
             <div className="col-2">
-                <input className="form-control" type="text" placeholder="" />
+                <input className="form-control" type="text" placeholder={state.cartCount[props.item.name]} />
             </div>
             <div className="col-2">
                 <button type="button" className="btn btn-danger" onClick={() => removeFromCart()}>X</button>
