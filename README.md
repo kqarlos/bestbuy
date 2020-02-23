@@ -112,7 +112,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## Deployed Link
 
-* [See Live Site](https://shrouded-refuge-91628.herokuapp.com/)
+* [See Live Site](https://best-buy-cart.herokuapp.com/)
 
 ## Author
 
