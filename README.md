@@ -8,10 +8,11 @@
     <img src="https://img.shields.io/github/languages/code-size/kqarlos/bestbuy?style=for-the-badge" alt="Code Size" />
     <img src="https://img.shields.io/github/repo-size/kqarlos/bestbuy?style=for-the-badge" alt="Repo Size" />   
     <img src="https://img.shields.io/tokei/lines/github/kqarlos/bestbuy?style=for-the-badge" alt="Total Lines" />
-    <img src="https://img.shields.io/github/package-json/dependency-version/kqarlos/bestbuy/body-parser?style=for-the-badge" alt="body-parser Version" />
     <img src="https://img.shields.io/github/package-json/dependency-version/kqarlos/bestbuy/express?style=for-the-badge" alt="Express Version" />
     <img src="https://img.shields.io/github/package-json/dependency-version/kqarlos/bestbuy/cors?style=for-the-badge" alt="Cors Version" />
     <img src="https://img.shields.io/github/package-json/dependency-version/kqarlos/bestbuy/if-env?style=for-the-badge" alt="if-env Version" />
+    <img src="https://img.shields.io/github/package-json/dependency-version/kqarlos/bestbuy/axios?style=for-the-badge" alt="Axios Version" />
+    <img src="https://img.shields.io/github/package-json/dependency-version/kqarlos/bestbuy/mongoose?style=for-the-badge" alt="Mongoose Version" />
     <img src="https://img.shields.io/github/last-commit/kqarlos/bestbuy?style=for-the-badge" alt="Last Commit" />  
     <img src="https://img.shields.io/github/issues/kqarlos/bestbuy?style=for-the-badge" alt="Issues" />  
     <img src="https://img.shields.io/github/followers/kqarlos?style=social" alt="Followers" />  
