@@ -17,6 +17,7 @@
     "concurrently": "^7.2.1"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "if-env": "^1.0.4"
   }
 }
