@@ -34,10 +34,7 @@ app.use(function (err, req, res, next) {
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/bestbuy',
   {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
+    useNewUrlParser: true
   },
 );
 
