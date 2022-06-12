@@ -36,7 +36,14 @@ const reducer = (state, action) => {
                 cartCount: count
             };
         case ADD_CART_ITEM:
+            // console.log(action.item);
             var count = state.cartCount;
+            // console.log(state.cart)
+            // console.log({
+            //     ...state,
+            //     cart: [action.item, ...state.cart],
+            //     cartCount: count
+            // })
             if (count[action.item.name]) {
                 count[action.item.name]++;
                 return {
@@ -45,6 +52,7 @@ const reducer = (state, action) => {
                 };
             } else {
                 count[action.item.name] = 1;
+                // console.log("HERE")
                 return {
                     ...state,
                     cart: [action.item, ...state.cart],
@@ -92,6 +100,7 @@ const StoreProvider = ({ value = [], ...props }) => {
         },
         categories: [],
         cart: [],
+        //key: itemName, value: itemQty
         cartCount: {},
         loggedin: false,
         userId: ""

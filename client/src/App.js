@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
@@ -21,14 +21,20 @@ function App() {
         <StoreProvider>
           <Navbar />
           <Wrapper>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/Login" component={Login} />
-            <Route exact path="/Signup" component={Signup} />
-            <Route exact path="/Payment" component={Payment} />
-            <Route exact path="/Cart" component={Cart} />
-            <Route exact path="/Item" component={Item} />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/Signup" element={<Signup />} />
+              <Route path="/Payment" element={<Payment />} />
+              <Route path="/Cart" element={<Cart />} />
+              <Route path="/Item" element={<Item />} />
+              <Route path="/:nomatch" element={<Home />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
             <Footer />
+
           </Wrapper>
+
         </StoreProvider>
       </div>
     </Router>

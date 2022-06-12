@@ -6,8 +6,11 @@ import { ADD_CART_ITEM } from "../../utils/actions";
 
 function Item() {
     const [state, dispatch] = useStoreContext();
+    // console.log("current item", state.currentItem);
 
     function addToCart() {
+        // console.log("state from item", state)
+        // console.log("saving current item", state.currentItem);
         dispatch({
             type: ADD_CART_ITEM,
             item: state.currentItem

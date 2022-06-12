@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem";
 import { useStoreContext } from "../../utils/GlobalState";
 
 function Cart() {
     const [state, dispatch] = useStoreContext();
+
+    // useEffect(() => {
+    //     console.log("state from cart", state)
+    //     console.log("CART", state.cart);
+
+    //   }, [state.cart])
 
     return (
 

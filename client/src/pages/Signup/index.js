@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
 import { LOGIN } from "../../utils/actions";
 import API from "../../utils/API";
@@ -9,13 +9,13 @@ function Signup() {
     const emailRef = useRef();
     const passRef = useRef();
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const handleClick = () => {
         API.signup({ email: emailRef.current.value, password: passRef.current.value })
             .then(user => {
                 console.log("API RESPONSE");
                 console.log(user)
-                history.push("/");
+                navigate("/");
                 dispatch({
                     type: LOGIN,
                     _id: user.data._id
