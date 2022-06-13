@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
 import "./style.css"
@@ -6,11 +6,8 @@ import { ADD_CART_ITEM } from "../../utils/actions";
 
 function Item() {
     const [state, dispatch] = useStoreContext();
-    // console.log("current item", state.currentItem);
 
-    function addToCart() {
-        // console.log("state from item", state)
-        // console.log("saving current item", state.currentItem);
+    const addToCartHandler = (e) => {
         dispatch({
             type: ADD_CART_ITEM,
             item: state.currentItem
@@ -20,7 +17,7 @@ function Item() {
     function getItemButton() {
         if (state.loggedin) {
             return (
-                <Link className="btn btn-dark" onClick={() => addToCart()} to="/Cart">
+                <Link className="btn btn-dark" onClick={() => addToCartHandler()} to="/Cart">
                     <i className="fas fa-shopping-cart"></i> Add to Cart
                 </Link>
             );

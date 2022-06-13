@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import "../ItemCard/style.css"
 import { SET_CURRENT_ITEM } from "../../utils/actions";
 
-function ItemCard(props) {
+function ItemCard({ item }) {
     const [state, dispatch] = useStoreContext();
 
     function setCurrentItem() {
         dispatch({
             type: SET_CURRENT_ITEM,
-            item: props.item
+            item: item
         });
     }
 
@@ -18,13 +18,13 @@ function ItemCard(props) {
 
         <div className="col-sm-4 my-3">
             <div className="card">
-                <img className="card-img-top " src={props.item.image} alt={props.item.name} />
+                <img className="card-img-top " src={item.image} alt={item.name} />
                 <div className="card-body">
-                    <Link className="card-title" onClick={() => setCurrentItem()} to="/Item">
-                        {props.item.name}
+                    <Link className="card-title" onClick={setCurrentItem} to="/Item">
+                        {item.name}
                     </Link>
-                    <p className="card-text">${props.item.salePrice}</p>
-                    <p className="card-text">{props.item.shortDescription}</p>
+                    <p className="card-text">${item.salePrice}</p>
+                    <p className="card-text">{item.shortDescription}</p>
                 </div>
             </div>
         </div>

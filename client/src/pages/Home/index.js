@@ -9,24 +9,10 @@ function Home() {
     const searchRef = useRef();
 
     const getItems = (item) => {
-        console.log("SEARCHING FOR");
-        console.log(item);
         API.findAll(item)
             .then(results => {
-                // console.log("API RESULTS");
-                // console.log(results.data);
-                // console.log("CAT RESULTS");
                 var random = Math.floor(Math.random() * (results.data.length))
                 var categoryList = results.data[random].categoryPath.map(cat => cat.name);
-                // var categoryList2 = results.data[1].categoryPath.map(cat => cat.name);
-                // categoryList.shift();
-                // categoryList.pop();
-                // categoryList2.shift();
-                // categoryList2.pop();
-                // categoryList = [...categoryList, ...categoryList2]
-
-                // console.log(categoryList);
-                // categoryList = categoryList.map(item => item.split(" & ").join(""));
                 dispatch({
                     type: UPDATE_CATEGORIES,
                     categories: categoryList

@@ -6,12 +6,6 @@ import { useStoreContext } from "../../utils/GlobalState";
 function Cart() {
     const [state, dispatch] = useStoreContext();
 
-    // useEffect(() => {
-    //     console.log("state from cart", state)
-    //     console.log("CART", state.cart);
-
-    //   }, [state.cart])
-
     return (
 
         <div className="container mt-5 bg-light p-5">
@@ -36,10 +30,9 @@ function Cart() {
             </div>
 
             {state.cart.map((i, index) => (
-                <CartItem key={index} item={i}/>
+                <CartItem key={index} item={i} />
             ))}
-            
-        
+
             <div className="mt-5 row">
 
                 <div className="col-3">
@@ -55,7 +48,7 @@ function Cart() {
                 <div className="col-4">
                     <Link to="/Payment" className="btn btn-dark btn-lg" role="button">
                         Checkout
-                     </Link>
+                    </Link>
                 </div>
 
             </div>

@@ -28,7 +28,6 @@ function App() {
               <Route path="/Payment" element={<Payment />} />
               <Route path="/Cart" element={<Cart />} />
               <Route path="/Item" element={<Item />} />
-              <Route path="/:nomatch" element={<Home />} />
               <Route path="*" element={<Home />} />
             </Routes>
             <Footer />
