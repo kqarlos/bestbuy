@@ -11,14 +11,16 @@ import Cart from "./pages/Cart"
 import Wrapper from "./components/Wrapper"
 import Item from "./pages/Item"
 import "./App.css"
-import { StoreProvider } from './utils/GlobalState';
+// import { StoreProvider } from './utils/GlobalState';
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
 
 function App() {
   return (
     <Router>
       <div>
-        <StoreProvider>
+        <Provider store={store}>
           <Navbar />
           <Wrapper>
             <Routes>
@@ -34,7 +36,7 @@ function App() {
 
           </Wrapper>
 
-        </StoreProvider>
+        </Provider>
       </div>
     </Router>
   );

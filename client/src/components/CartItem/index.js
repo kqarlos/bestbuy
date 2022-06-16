@@ -1,14 +1,18 @@
 import React from "react"
-import { useStoreContext } from "../../utils/GlobalState";
+// import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_CART_ITEM } from "../../utils/actions";
+import { useDispatch, useSelector } from 'react-redux';
 
-function CartItem(props) {
-    const [state, dispatch] = useStoreContext();
+function CartItem({ item }) {
+
+    // const [state, dispatch] = useStoreContext();
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
 
     function removeFromCart() {
         dispatch({
             type: REMOVE_CART_ITEM,
-            name: props.item.name
+            name: item.name
         });
     }
 
@@ -17,19 +21,19 @@ function CartItem(props) {
         <div className="row mt-4">
 
             <div className="col-2">
-                <img className="card-img-top" src={props.item.image} alt={props.item.name} />
+                <img className="card-img-top" src={item.image} alt={item.name} />
             </div>
             <div className="col-4">
-                {props.item.shortDescription}
+                {item.shortDescription}
             </div>
             <div className="col-2">
-                {props.item.salePrice}
+                {item.salePrice}
             </div>
             <div className="col-2">
-                <input className="form-control" type="text" placeholder={state.cartCount[props.item.name]} />
+                <input className="form-control" type="text" placeholder={state.cartCount[item.name]} />
             </div>
             <div className="col-2">
-                <button type="button" className="btn btn-danger" onClick={() => removeFromCart()}>X</button>
+                <button type="button" className="btn btn-danger" onClick={removeFromCart}>X</button>
             </div>
 
         </div>
