@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useStoreContext } from "../../utils/GlobalState";
-import { LOGOUT } from "../../utils/actions";
-
+// import { useStoreContext } from "../../utils/GlobalState";
+// import { LOGOUT } from "../../utils/actions";
+import { useDispatch, useSelector } from 'react-redux';
 // import "./style.css"
 
 
 function Navbar() {
 
-    const [state, dispatch] = useStoreContext();
+    // const [state, dispatch] = useStoreContext();
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
 
-    function logout() {
+    function handleLogout() {
         dispatch({
             type: LOGOUT
         })
@@ -30,7 +32,7 @@ function Navbar() {
                     <Link className="nav-item nav-link" to="/Cart">
                         Cart
                     </Link>
-                    <Link className="nav-item nav-link" onClick={() => logout()} to="/">
+                    <Link className="nav-item nav-link" onClick={handleLogout} to="/">
                         Logout
                     </Link>
                 </div>
@@ -43,10 +45,10 @@ function Navbar() {
                     </Link>
                     <Link className="nav-item nav-link" to="/Login">
                         Login
-                </Link>
+                    </Link>
                     <Link className="nav-item nav-link" to="/Signup">
                         Signup
-                </Link>
+                    </Link>
                 </div>
             );
         }

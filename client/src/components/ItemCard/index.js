@@ -1,11 +1,14 @@
 import React from "react";
-import { useStoreContext } from "../../utils/GlobalState";
+// import { useStoreContext } from "../../utils/GlobalState";
 import { Link } from "react-router-dom";
 import "../ItemCard/style.css"
 import { SET_CURRENT_ITEM } from "../../utils/actions";
+import { useDispatch } from 'react-redux';
+
 
 function ItemCard({ item }) {
-    const [state, dispatch] = useStoreContext();
+    // const [state, dispatch] = useStoreContext();
+    const dispatch = useDispatch();
 
     function setCurrentItem() {
         dispatch({
