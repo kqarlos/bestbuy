@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import ItemCard from "../../components/ItemCard";
 import API from "../../utils/API";
-import { useStoreContext } from "../../utils/GlobalState";
+import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_ITEMS, UPDATE_CATEGORIES } from "../../utils/actions"
 
 function Home() {
-    const [state, dispatch] = useStoreContext();
+    // const [state, dispatch] = useStoreContext();
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
+    
     const searchRef = useRef();
 
     const getItems = (item) => {

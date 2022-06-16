@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useStoreContext } from "../../utils/GlobalState";
+import { useDispatch, useSelector } from 'react-redux';
 import { LOGIN } from "../../utils/actions";
 import API from "../../utils/API";
 
 function Signup() {
-    const [state, dispatch] = useStoreContext();
+    // const [state, dispatch] = useStoreContext();
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
+    
     const emailRef = useRef();
     const passRef = useRef();
 

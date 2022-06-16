@@ -1,11 +1,13 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom";
-import { useStoreContext } from "../../utils/GlobalState";
+import { useDispatch, useSelector } from 'react-redux';
 import "./style.css"
 import { ADD_CART_ITEM } from "../../utils/actions";
 
 function Item() {
-    const [state, dispatch] = useStoreContext();
+    // const [state, dispatch] = useStoreContext();
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
 
     const addToCartHandler = (e) => {
         dispatch({
