@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CLEAR_CART } from "../../utils/actions";
 
 function Payment() {
-    // const [state, dispatch] = useStoreContext();
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
 
     const navigate = useNavigate();
-    const handleClick = () => {
+    const handlePaymentSubmit = () => {
         navigate("/");
         dispatch({
             type: CLEAR_CART
@@ -101,7 +100,7 @@ function Payment() {
                                 Go back home
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-dark" data-dismiss="modal" onClick={handleClick}>Close</button>
+                                <button type="button" className="btn btn-dark" data-dismiss="modal" onClick={handlePaymentSubmit}>Close</button>
                             </div>
 
                         </div>

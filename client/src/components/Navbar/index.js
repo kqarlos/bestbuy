@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-// import { useStoreContext } from "../../utils/GlobalState";
-// import { LOGOUT } from "../../utils/actions";
+import { LOGOUT } from "../../utils/actions";
 import { useDispatch, useSelector } from 'react-redux';
-// import "./style.css"
-
 
 function Navbar() {
 
-    // const [state, dispatch] = useStoreContext();
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
 
@@ -17,10 +13,6 @@ function Navbar() {
             type: LOGOUT
         })
     }
-
-    useEffect(() => {
-
-    }, []);
 
     function getNav(loggedin) {
         if (loggedin) {

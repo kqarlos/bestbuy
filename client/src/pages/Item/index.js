@@ -1,11 +1,10 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import "./style.css"
 import { ADD_CART_ITEM } from "../../utils/actions";
+import "./style.css"
 
 function Item() {
-    // const [state, dispatch] = useStoreContext();
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
 

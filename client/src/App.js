@@ -11,7 +11,6 @@ import Cart from "./pages/Cart"
 import Wrapper from "./components/Wrapper"
 import Item from "./pages/Item"
 import "./App.css"
-// import { StoreProvider } from './utils/GlobalState';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 
@@ -33,9 +32,7 @@ function App() {
               <Route path="*" element={<Home />} />
             </Routes>
             <Footer />
-
           </Wrapper>
-
         </Provider>
       </div>
     </Router>

@@ -5,26 +5,22 @@ import { LOGIN } from "../../utils/actions";
 import API from "../../utils/API";
 
 function Signup() {
-    // const [state, dispatch] = useStoreContext();
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
-    
+
     const emailRef = useRef();
     const passRef = useRef();
 
     const navigate = useNavigate();
-    const handleClick = () => {
+    const handleSignup = () => {
         API.signup({ email: emailRef.current.value, password: passRef.current.value })
             .then(user => {
-                console.log("API RESPONSE");
-                console.log(user)
                 navigate("/");
                 dispatch({
                     type: LOGIN,
                     _id: user.data._id
                 })
             });
-      
     }
 
     return (
@@ -59,7 +55,7 @@ function Signup() {
                                 Go back home and start shopping
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-dark" data-dismiss="modal" onClick={handleClick}>Close</button>
+                                <button type="button" className="btn btn-dark" data-dismiss="modal" onClick={handleSignup}>Close</button>
                             </div>
 
                         </div>

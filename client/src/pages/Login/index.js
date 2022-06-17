@@ -8,12 +8,12 @@ function Login() {
     // const [state, dispatch] = useStoreContext();
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
-    
+
     const emailRef = useRef();
     const passRef = useRef();
 
     const navigate = useNavigate();
-    const handleClick = () => {
+    const handleLogin = () => {
         API.login({ email: emailRef.current.value, password: passRef.current.value })
             .then(user => {
                 //user.data.success = true if login succesfull
@@ -57,7 +57,7 @@ function Login() {
                             </div>
                             <div className="modal-footer">
 
-                                <button type="button" className="btn btn-dark" data-dismiss="modal" onClick={handleClick}>Close</button>
+                                <button type="button" className="btn btn-dark" data-dismiss="modal" onClick={handleLogin}>Close</button>
                             </div>
 
                         </div>

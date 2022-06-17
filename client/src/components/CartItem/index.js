@@ -1,11 +1,9 @@
 import React from "react"
-// import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_CART_ITEM } from "../../utils/actions";
 import { useDispatch, useSelector } from 'react-redux';
 
 function CartItem({ item }) {
 
-    // const [state, dispatch] = useStoreContext();
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
 
